@@ -8,8 +8,8 @@
   	<plugins>
   		<plugin>
   			<artifactId>maven-war-plugin</artifactId>
-  			<configuration>
-  				<version>3.0</version> 
+			<version>3.0</version>
+			<configuration>
   			</configuration>
   		</plugin>
   		
@@ -50,7 +50,7 @@
   	<dependency>
   		<groupId>org.slf4j</groupId>
   		<artifactId>slf4j-log4j12</artifactId>
-  		<version>1.7.10</version>
+  		<version>1.7.25</version>
   	</dependency>
   	<!-- Jackson Json处理工具包 springmvc 处理json数据的 -->
   	<dependency>
