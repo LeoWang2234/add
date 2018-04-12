@@ -1,10 +1,15 @@
 package com.ecust.controller;
 
+import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.ecust.JdbcTest;
+import com.ecust.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -25,11 +30,17 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+
+    @Autowired
+    private StudentService studentService;
 	
 	//登录
 	@RequestMapping("/login")
 	public String login(User user,HttpServletRequest request){
-		String name = request.getParameter("userName");
+
+        List students = studentService.queryAll();
+        System.out.println(students);
+        String name = request.getParameter("userName");
 		String password = request.getParameter("password");
 		//用户名或密码为空,用户输入账号或密码不能为字符串“null”
 		if(name == null || password == null){
